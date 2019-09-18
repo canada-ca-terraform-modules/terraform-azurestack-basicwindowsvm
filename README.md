@@ -1,0 +1,1 @@
+# terraform-azurestack-basicwindowsvm
