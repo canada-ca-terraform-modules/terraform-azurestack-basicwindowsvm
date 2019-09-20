@@ -3,7 +3,7 @@ output "vm" {
 }
 
 output "pip" {
-  value = var.public_ip ? azurestack_public_ip.VM-EXT-PubIP : "0.0.0.0"
+  value = azurestack_public_ip.VM-EXT-PubIP
 }
 
 output "nic" {
