@@ -76,12 +76,25 @@ variable "nic_ip_configuration" {
   }
 }
 
+variable "load_balancer_backend_address_pools_ids" {
+  description = "List of Load Balancer Backend Address Pool IDs references to which this NIC belongs"
+  default     = [[], [], [], [], [], [], [], [], [], [], [], []]
+}
+
 variable "admin_username" {
   description = "Name of the VM admin account"
 }
 
 variable "admin_password" {
   description = "Name of the VM admin account"
+}
+
+variable "os_managed_disk_type" {
+  default = "Standard_LRS"
+}
+
+variable "data_managed_disk_type" {
+  default = "Standard_LRS"
 }
 
 variable "vm_size" {
@@ -113,6 +126,15 @@ variable "storage_os_disk" {
 
 variable "license_type" {
   description = "BYOL license type for those with Azure Hybrid Benefit"
+  default     = null
+}
+
+variable "boot_diagnostic" {
+  default = false
+}
+
+variable "availability_set_id" {
+  description = "Sets the id for the availability set to use for the VM"
   default     = null
 }
 
