@@ -73,7 +73,7 @@ resource azurestack_network_interface NIC {
 }
 
 resource azurestack_virtual_machine VM {
-  name                             = "${var.name}-vm"
+  name                             = "${var.name}"
   depends_on                       = [var.vm_depends_on]
   location                         = "${var.location}"
   resource_group_name              = "${var.resource_group_name}"

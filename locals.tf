@@ -5,5 +5,6 @@ locals {
   boot_diagnostic = var.boot_diagnostic ? ["1"] : []
   unique          = "${substr(sha1("${data.azurestack_resource_group.resourceGroup.id}"), 0, 8)}"
   fixname         = "${replace("${var.name}", "-", "")}"
-  storageName     = "${lower("${local.fixname}diag${local.unique}")}"
+  fixname2        = "${replace("${var.name}", "_", "")}"
+  storageName     = "${lower("${local.fixname2}diag${local.unique}")}"
 }

@@ -229,6 +229,7 @@ domainToJoin = {
 
 | Date     | Release    | Change                                           |
 | -------- | ---------- | ------------------------------------------------ |
+| 20191015 | 20191015.1 | Adopt new VM resource naming convention          |
 | 20191010 | 20191010.1 | Adding support for os and data managed disk type |
 |          |            | Add support for LB backend pool IDs              |
 |          |            | Adding support for availabilityset               |
