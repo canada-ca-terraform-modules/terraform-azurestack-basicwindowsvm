@@ -145,3 +145,8 @@ variable "tags" {
     "exampleTag1" = "SomeValue2"
   }
 }
+
+variable "use_nic_nsg" {
+  description = "Should an NSG be created and assigned to the VM NIC"
+  default     = true
+}

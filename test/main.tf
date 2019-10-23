@@ -31,9 +31,10 @@ module "cio-rds01" {
   resource_group_name          = azurestack_resource_group.RDS-rg.name
   admin_username               = "azureadmin"
   admin_password               = "Canada123!"
-  vm_size                      = "Standard_F4"
-  public_ip                    = true
-  custom_data                  = "${file("./custom.ps1")}"
+  vm_size                      = "Standard_F2"
+  public_ip                    = false
+  use_nic_nsg                  = false
+  # custom_data                  = "${file("./custom.ps1")}"
   nic_subnetName               = azurestack_subnet.paz-snet.name
   nic_vnetName                 = azurestack_virtual_network.RDS-vnet.name
   nic_vnet_resource_group_name = azurestack_resource_group.RDS-rg.name

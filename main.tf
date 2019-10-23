@@ -2,6 +2,7 @@ resource azurestack_network_security_group NSG {
   name                = "${var.name}-nsg"
   location            = "${var.location}"
   resource_group_name = "${var.resource_group_name}"
+  count               = var.use_nic_nsg ? 1 : 0
   dynamic "security_rule" {
     for_each = [for s in var.security_rules : {
       name                       = s.name
@@ -55,7 +56,7 @@ resource azurestack_network_interface NIC {
   location                  = "${var.location}"
   resource_group_name       = "${var.resource_group_name}"
   enable_ip_forwarding      = "${var.nic_enable_ip_forwarding}"
-  network_security_group_id = "${azurestack_network_security_group.NSG.id}"
+  network_security_group_id = var.use_nic_nsg ? "${azurestack_network_security_group.NSG[0].id}" : null
   dns_servers               = "${var.dnsServers}"
   dynamic "ip_configuration" {
     for_each = var.nic_ip_configuration.private_ip_address_allocation
