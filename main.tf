@@ -53,6 +53,7 @@ resource azurestack_public_ip VM-EXT-PubIP {
 
 resource azurestack_network_interface NIC {
   name                      = "${var.name}-nic1"
+  depends_on                = [var.nic_depends_on]
   location                  = "${var.location}"
   resource_group_name       = "${var.resource_group_name}"
   enable_ip_forwarding      = "${var.nic_enable_ip_forwarding}"
