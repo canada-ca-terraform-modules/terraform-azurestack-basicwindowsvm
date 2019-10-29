@@ -7,5 +7,5 @@ locals {
   fixname         = "${replace("${var.name}", "-", "")}"
   fixname2        = "${replace("${local.fixname}", "_", "")}"
   fixname3        = "${substr("${local.fixname2}diag", 0, 16)}"
-  storageName     = "${lower("${local.fixname3}${local.unique}")}"
+  storageName     = "${lower("${local.fixname3}")}"
 }

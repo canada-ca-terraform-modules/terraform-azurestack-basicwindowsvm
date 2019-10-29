@@ -34,7 +34,7 @@ resource azurestack_network_security_group NSG {
 
 resource "azurestack_storage_account" "boot_diagnostic" {
   count                    = var.boot_diagnostic ? 1 : 0
-  name                     = "${local.storageName}"
+  name                     = "${local.storageName}${substr(sha1("${data.azurestack_resource_group.resourceGroup.id}${var.name}"), 0, 8)}"
   resource_group_name      = "${var.resource_group_name}"
   location                 = "${var.location}"
   account_tier             = "Standard"
